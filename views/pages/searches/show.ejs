@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Book Results</title>
+</head>
+<link rel="stylesheet" href="./public/styles/base.css">
+<body>
+
+<main>
+    <h1>search by titile or Author</h1>
+      <ul><% for(var item of items){ %>
+        <li><h3><%= item.title %></h3>
+            
+            <div style="background-color: #777; color: white;"> 
+               
+                <p><strong>Publisher: </strong> <%= item.publisher %></p>
+                <p><strong>Year: </strong> <%= item.publishedDate %></p>
+            </div>
+        </li>
+       <% } %></ul>
+
+  
+</main>
+
+<footer>
+    
+</footer>
+
+</body>
+</html>
