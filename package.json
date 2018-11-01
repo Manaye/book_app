@@ -4,7 +4,7 @@
   "description": "**Author**: Hiwot & Shalom \r **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
