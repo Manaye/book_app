@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <main>
-        <section></section>
-    </main>
-</body>
-</html>
+<section class="book-view container">
+    
+        <ul id="book-list">
+          <%for(var i of books) { %>
+            <li class="book-item" book-id="<%= book.id %>">
+              <h1>Title:<%= book.title %></h1>
+              <p>Author:<%= book.author %></p>
+              <p>description:<%= book.description %></p>
+              <p>ISBN:<%= book.ISBN %></P>
+                <p>Bookshelf:<%= book.bookshelf %></p>
+                <p>img src ="<%=image_url%>"> </p>
+            </li>
+            <% }) %>
+          </ul>
+</section>

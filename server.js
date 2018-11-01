@@ -15,18 +15,14 @@ client.connect();
 //   res.render('index');
 // });
 
-
 const PORT = process.env.PORT||300
 
 app.use(express.urlencoded({extended: true}));
-
-
 
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
 app.get('/',getBook);
-
 
 
 app.post('/searches',createSearch);
@@ -41,16 +37,14 @@ function Book(info){
   this.isbn = info.isbn;
   this.image_url = info.image_url;
   this.description = info.description;
-
-
 }
-let sampleBooks1 = new Book({title: 'my book', author: 'me', isbn: '5656vhvvjh5765765',image_url: 'some url', description: 'amazing book'});
+let sampleBooks1 = new Book({title: 'my book', author: 'me', isbn: '5656vhvvjh5765765',image_url: 'https://books.google.com/books?id=Fd43HG8uEDcC&dq=cat+book&hl=en&sa=X&ved=0ahUKEwiynJGP6bPeAhWGIjQIHeY5DS0Q6AEIKjAA', description: 'amazing book'});
 function addBook(req, res){
   console.log(req.body);
   // let {title, author, isbn, image_url, description} = req.body;
   let {title, author, isbn, image_url, description} = sampleBooks1;
 
-  let sql = 'INSERT INTO booksshelf(title, author, isbn, image_url, description) values ($1, $2, $3, $4, $5);';
+  let sql = 'INSERT INTO booksshelf(title, author, isbn, image_url, description) values ($1, $2, $3, $4);';
   let values = [title, author, isbn, image_url, description];
   return client.query(sql, values).then(res.redirect('/')).catch(err => handleError(err, res));
 

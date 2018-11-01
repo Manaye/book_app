@@ -9,28 +9,25 @@
 <header>
     <h1>Best Books!</h1>
 </header>
-
 <main>
         
         <section class="book-view container">
             <p>we have <%= results.length%> books</p>
             <ul id="book-list">
-              <% results.forEach(book => { %>
+              <% results.forEach(book => { 
+                  console.log('book', book); %>
                 <li class="book-item" data-id="<%= book.id %>">
                   <h1><%= book.title %></h1>
                   <p> <strong>Author</strong> : <%= book.author %></p>
                   <p> <strong>Isbn</strong>: <%= book.isbn %></p>
-                  <p> <strong>image</strong>: <%= book.image_url %></p>
+                  <img src =" https://tse1.mm.bing.net/th?id=OIP.mOl_8WL7CiJDXqdJ-s9jqgHaHa&pid=15.1&P=0&w=300&h=300 ">
                   <p> <strong>description</strong>: <%= book.description %></p>
                   <a href="/book/<%= book.id%>">View Details</a>
                 </li>
                 <% }) %>
-              </ul>
-
-     
-  </section>
-
-</main>
+              </ul>     
+          </section>
+   </main>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
 

@@ -7,18 +7,7 @@
 <body>
 
 <main>
-    <h1>search by titile or Author</h1>
-      <ul><% for(var item of items){ %>
-        <li><h3><%= item.title %></h3>
-            
-            <div style="background-color: #777; color: white;"> 
-               
-                <p><strong>Publisher: </strong> <%= item.isbn %></p>
-                <p><strong>Year: </strong> <%= item.author %></p>
-                
-            </div>
-        </li>
-       <% } %></ul>
+   <%-include(' ./pages/books/detail.ejs') %>
 
   
 </main>
