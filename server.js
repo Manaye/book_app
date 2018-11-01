@@ -2,17 +2,28 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const superagent = require('superagent');
-const bodyParser = require('body-parser');
 
 const pg = require('pg');
 require('dotenv').config()
+const CONSTRING = process.env.DATABASE_URL
+console.log(CONSTRING);
+const client = new pg.Client(CONSTRING)
+client.connect();
+
+
+// app.get('/',(req ,res) =>{
+//   res.render('index');
+// });
 
 
 const PORT = process.env.PORT||300
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+
+app.use(express.urlencoded({extended: true}));
+
+
+
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static('./public'));
 
 app.get('/',newSearch);
 
@@ -31,7 +42,7 @@ function Book(info){
 
 }
 
-// /const  all book = apires .body .item.slice(0,10)
+
 
 function newSearch (req,res){
   // console.log(req.query );
@@ -48,13 +59,15 @@ function createSearch(req,res){
   superagent.get(url)
     .then(apiRes=>{
       console.log(apiRes.body.items);
-      return apiRes.body.items.map(bookResult=> new Book(bookResult.volumeInfo))})
+
+      return apiRes.body.items.map(bookResult=>new Book(bookResult.volumeInfo));
+      
+    })
     .then(results=>{
       console.log(results);
       res.render('pages/searches/show',{items: results})
-      res.sendFile(path.join(__dirname,'/public/styles/base.css'));
+      // res.sendFile(path.join(__dirname,'/public/styles/base.css'));
 
     }).catch(() => res.render('pages/error'));
 }
-
 
