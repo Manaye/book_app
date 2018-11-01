@@ -11,29 +11,30 @@
 </header>
 
 <main>
-    <h1>serach by titile or Author</h1>
-    <form action="/searches" method="post">
-        <input type="text" name="search" placeholder= "tittle or author" required >
-        <fieldset>
-                <label for="title">
-                    <span>title</span>
-                    <input type="radio" name ="search" value= "title"required>
-                     </label>
-            </fieldset>
-            <fieldset>
-                    <label for="author">
-                        <span>author</span>
-                        <input type="radio" name ="search" value= "author" required>
-                         </label>
-                        </fieldset>
-           <button  type ="submit"> Search Google Book Api</button>
-          </form>
-    <div>
-        <h1>Enjoy your reading </h1>
         
-    </div>
-</main>
+        <section class="book-view container">
+            <p>we have <%= results.length%> books</p>
+            <ul id="book-list">
+              <% results.forEach(book => { %>
+                <li class="book-item" data-id="<%= book.id %>">
+                  <h1><%= book.title %></h1>
+                  <p> <strong>Author</strong> : <%= book.author %></p>
+                  <p> <strong>Isbn</strong>: <%= book.isbn %></p>
+                  <p> <strong>image</strong>: <%= book.image_url %></p>
+                  <p> <strong>description</strong>: <%= book.description %></p>
+                  <a href="/book/<%= book.id%>">View Details</a>
+                </li>
+                <% }) %>
+              </ul>
 
+     
+  </section>
+
+</main>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+
+    <script src="app.js"></script>
 <footer>
     
 </footer>
