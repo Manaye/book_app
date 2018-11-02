@@ -7,10 +7,9 @@
 <body class="container">
 
 <header>
-    <h1>Best Books!</h1>
+    <h1>Best books!</h1>
 </header>
-<main>
-        
+<main>        
         <section class="book-view container">
             <p>we have <%= results.length%> books</p>
             <ul id="book-list">
@@ -20,9 +19,9 @@
                   <h1><%= book.title %></h1>
                   <p> <strong>Author</strong> : <%= book.author %></p>
                   <p> <strong>Isbn</strong>: <%= book.isbn %></p>
-                  <img src =" https://tse1.mm.bing.net/th?id=OIP.mOl_8WL7CiJDXqdJ-s9jqgHaHa&pid=15.1&P=0&w=300&h=300 ">
+                   <img src =<%= book.image_url %>> 
                   <p> <strong>description</strong>: <%= book.description %></p>
-                  <a href="/book/<%= book.id%>">View Details</a>
+                  <a href="/books/book/<%= book.id%>">View Details</a>
                 </li>
                 <% }) %>
               </ul>     
