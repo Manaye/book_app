@@ -1,10 +1,10 @@
 {
   "name": "book_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "**Author**: Hiwot & Shalom \r **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,6 @@
     "nodemon": "^1.18.5",
     "pg": "^7.6.0",
     "superagent": "^4.0.0-beta.5"
-  }
+  },
+  "devDependencies": {}
 }
