@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -108,3 +109,5 @@ function createSearch(req,res){
 function handleError(err, res){
   res.render('pages/error');
 }
+
+
