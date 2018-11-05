@@ -60,7 +60,7 @@ function getBook(req, res){
   return client.query(sql).then(results =>{
     console.log(results);
     res.render('pages/index', {results: results.rows});
-  });
+  }).catch((e) =>console.log(e.message));
 }
 
 function getOneBook(req, res){
